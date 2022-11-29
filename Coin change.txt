@@ -1,0 +1,37 @@
+#include <stdio.h>
+#define COINS 3
+#define MAX 20
+
+
+int main() {
+    int n;
+    for(n=0;n>=1000;n++)
+    {
+        printf("Enter amount to make change",n);
+        scanf("%d",&n);
+    }
+        printf("Enter amount to make change",n);
+        scanf("%d",&n);
+        printf("The minimal number of change for %d:\t",n);
+        findMinGreedy(n);
+}
+int coins[COINS]={1,4,6};
+
+void findMinGreedy(int cost)
+{
+    int coinList[MAX]={0};
+    int i,j=0;
+    for(i=COINS-1;i>=0;i--)
+    {
+        while(cost >=coins[i])
+        {
+            cost-=coins[i];
+            coinList[j++]=coins[i];
+        }
+    }
+    for(i=0;i<j;i++)
+    {
+        printf("%d,\t",coinList[i]);
+    }
+}
+        
